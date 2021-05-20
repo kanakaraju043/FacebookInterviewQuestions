@@ -7,17 +7,17 @@
 
 import UIKit
 
-class Record {
-    let id: UUID
-    let score: Int
-}
-
-class Ahelete {
-    var record: [Record] = [Record]()
-    var athId: UUID
-    var score: Int
-    
-}
+//class Record {
+//    let id: UUID
+//    let score: Int
+//}
+//
+//class Ahelete {
+//    var record: [Record] = [Record]()
+//    var athId: UUID
+//    var score: Int
+//
+//}
 
 // 1.  Since the above code is executed concurrently and is being executed in a multi-threaded environment, what problems can arrive given the above context?
 // 2. Add function in the Athelte class to get a record for particular ID and add a function to save a record in the local array
@@ -72,6 +72,7 @@ class ViewController: UIViewController {
         
         reversestring()
         primeOrNot()
+        fizBuzz()
     }
     
     func getLargestNumberFromInterestingNumber() {
@@ -264,6 +265,46 @@ class ViewController: UIViewController {
 
         }
     }
+    
+    func fizBuzz() {
+        for number in 1...100 {
+        
+            print("number", number)
+
+            if number % 3 == 0 && number % 5 == 0 {
+                print("FizzBuzz")
+
+            } else if number % 3 == 0 {
+                print("Fizz")
+
+                
+            } else if number % 5 == 0 {
+                print("Buzz")
+
+            }
+        }
+    }
+    
+    func isPalindrom( value: String) -> Bool {
+        
+        let midLen = value.count / 2
+        
+        for i in 0..<midLen {
+            let start = value.index(value.startIndex, offsetBy: i)
+            let end = value.index(value.endIndex, offsetBy: (i * -1) - 1)
+            if value[start] != value[end] {
+                return false
+            }
+        }
+        
+        return false
+    }
 }
 
 
+//FizzBuzz is a coding challenge. Its instructions are:
+
+//Write a program that prints the numbers from 1 to 100
+//For numbers divisible by 3, print “Fizz”
+//For numbers divisible by 5, print “Buzz”
+//For numbers divisible by both 3 and 5, print “FizzBuzz”
