@@ -46,6 +46,13 @@ class ViewController: UIViewController {
         var anotherString = "world"
         
         swapTwoValues(&someString, valueB: &anotherString)
+        
+        fibonacciSeries()
+        
+        findSumOfItsDigitsOfGivenNumber()
+        reverseGivenNumber()
+        palindromNumberOrNot()
+        armStrongNumberOrNot()
     }
 
     func getLargestNumberFromInterestingNumber() {
@@ -112,6 +119,101 @@ class ViewController: UIViewController {
         valueB = tempValue
         
         print(valueA, valueB)
+        
+       
+    }
+    
+    func fibonacciSeries() {
+        let toLimit = 10
+        var f1 = 0
+        var f2 = 1
+        var temp = 0
+        print("fibonacciSeries")
+
+        for _ in 1...toLimit {
+            
+            print(f1)
+            if temp > toLimit {
+                return
+            }
+            temp = f1 + f2
+            f1 = f2
+            f2 = temp
+        }
+    }
+    
+    func findSumOfItsDigitsOfGivenNumber() {
+        var givenNumber = 155
+        var r = 0, sum = 0
+        
+        while givenNumber > 0 {
+            r = givenNumber % 10
+            sum += r
+            givenNumber = givenNumber / 10
+        }
+        print("findSumOfItsDigitsOfGivenNumber")
+
+        print(sum)
+    }
+    
+    func reverseGivenNumber() {
+        var givenNumber = 155
+        var r = 0, sum = 0
+        while givenNumber > 0 {
+            r = givenNumber % 10
+            sum = sum * 10 + r
+            givenNumber = givenNumber / 10
+        }
+        print("reverseGivenNumber")
+
+        print(sum)
+    }
+    
+    func palindromNumberOrNot() {
+        var givenNumber = 151
+        var r = 0, sum = 0
+        let temp = givenNumber
+        while givenNumber > 0 {
+            r = givenNumber % 10
+            sum = sum * 10 + r
+            givenNumber = givenNumber / 10
+        }
+        
+        givenNumber = temp
+        print("PalindromNumberOrNot")
+
+        if sum == givenNumber {
+            print("Palindrom")
+
+        } else {
+            print("Not Palindrom")
+
+        }
+        print(sum)
+    }
+    
+    func armStrongNumberOrNot() {
+        var givenNumber = 155
+        var r = 0, sum = 0
+        let temp = givenNumber
+        while givenNumber > 0 {
+            r = givenNumber % 10
+            
+            sum = sum + r * r * r
+            givenNumber = givenNumber / 10
+        }
+        
+        givenNumber = temp
+        print("armStrongNumberOrNot")
+
+        if sum == givenNumber {
+            print("Armstrong")
+
+        } else {
+            print("Not Armstrong")
+
+        }
+        print(sum)
     }
 }
 
