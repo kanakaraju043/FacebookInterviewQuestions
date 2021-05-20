@@ -53,6 +53,8 @@ class ViewController: UIViewController {
         reverseGivenNumber()
         palindromNumberOrNot()
         armStrongNumberOrNot()
+        
+        reversestring()
     }
 
     func getLargestNumberFromInterestingNumber() {
@@ -205,15 +207,22 @@ class ViewController: UIViewController {
         
         givenNumber = temp
         print("armStrongNumberOrNot")
-
         if sum == givenNumber {
             print("Armstrong")
-
         } else {
             print("Not Armstrong")
-
         }
         print(sum)
+    }
+    
+    func reversestring() {
+        let str = "hello"
+        var result = ""
+        for i in 1...str.count {
+            let index = str.index(str.endIndex, offsetBy: -i)
+            result.append(str[index])
+        }
+        print(result)
     }
 }
 
