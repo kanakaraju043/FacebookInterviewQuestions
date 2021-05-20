@@ -7,8 +7,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Record {
+    let id: UUID
+    let score: Int
+}
 
+class Ahelete {
+    var record: [Record] = [Record]()
+    var athId: UUID
+    var score: Int
+    
+}
+
+// 1.  Since the above code is executed concurrently and is being executed in a multi-threaded environment, what problems can arrive given the above context?
+// 2. Add function in the Athelte class to get a record for particular ID and add a function to save a record in the local array
+
+
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,7 +41,7 @@ class ViewController: UIViewController {
         let  gender: String
         name = nil
         lastName = nil
-       // gender = nil
+        // gender = nil
         
         
         let vegetable = "red pepper1"
@@ -55,12 +71,13 @@ class ViewController: UIViewController {
         armStrongNumberOrNot()
         
         reversestring()
+        primeOrNot()
     }
-
+    
     func getLargestNumberFromInterestingNumber() {
         
         let interestingNumbers = [
-        
+            
             "Prime": [2, 3, 5, 7, 9, 11, 13],
             "Fibonacci": [1, 1, 2, 3, 5, 8],
             "Square": [1, 4, 9, 16, 25]
@@ -78,13 +95,13 @@ class ViewController: UIViewController {
             }
         }
         print("====================")
-
+        
         print(largest)
         
         print("====================")
         findSumMinMax()
     }
-
+    
     func findSumMinMax() {
         let numbersArray = [10,1,5,20,14]
         var min = numbersArray[0]
@@ -101,8 +118,8 @@ class ViewController: UIViewController {
             
             sum += number
             
-          
-
+            
+            
         }
         
         print(min)
@@ -114,7 +131,7 @@ class ViewController: UIViewController {
     
     func swapTwoValues<T>(_ valueA: inout T, valueB: inout T) {
         print(valueA, valueB)
-
+        
         print("==========================")
         let tempValue = valueA
         valueA = valueB
@@ -122,7 +139,7 @@ class ViewController: UIViewController {
         
         print(valueA, valueB)
         
-       
+        
     }
     
     func fibonacciSeries() {
@@ -131,7 +148,7 @@ class ViewController: UIViewController {
         var f2 = 1
         var temp = 0
         print("fibonacciSeries")
-
+        
         for _ in 1...toLimit {
             
             print(f1)
@@ -154,7 +171,7 @@ class ViewController: UIViewController {
             givenNumber = givenNumber / 10
         }
         print("findSumOfItsDigitsOfGivenNumber")
-
+        
         print(sum)
     }
     
@@ -167,7 +184,7 @@ class ViewController: UIViewController {
             givenNumber = givenNumber / 10
         }
         print("reverseGivenNumber")
-
+        
         print(sum)
     }
     
@@ -183,13 +200,13 @@ class ViewController: UIViewController {
         
         givenNumber = temp
         print("PalindromNumberOrNot")
-
+        
         if sum == givenNumber {
             print("Palindrom")
-
+            
         } else {
             print("Not Palindrom")
-
+            
         }
         print(sum)
     }
@@ -216,6 +233,8 @@ class ViewController: UIViewController {
     }
     
     func reversestring() {
+        print("reversestring")
+
         let str = "hello"
         var result = ""
         for i in 1...str.count {
@@ -223,6 +242,27 @@ class ViewController: UIViewController {
             result.append(str[index])
         }
         print(result)
+    }
+    
+    func primeOrNot() {
+        print("primeOrNot")
+
+        let givenNumber = 4
+        var count = 0
+        
+        for i in 1...givenNumber {
+            if givenNumber % i == 0 {
+                count = count + 1
+            }
+        }
+        
+        if count == 2 {
+            print("Prime")
+
+        } else {
+            print("Not Prime")
+
+        }
     }
 }
 
