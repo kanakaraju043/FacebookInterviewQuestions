@@ -308,3 +308,54 @@ class ViewController: UIViewController {
 //For numbers divisible by 3, print “Fizz”
 //For numbers divisible by 5, print “Buzz”
 //For numbers divisible by both 3 and 5, print “FizzBuzz”
+
+//*********************Banglore trell interview questions
+1. Tell me about CollectionViewFlowLayoutDelegate
+
+2. write a program to fetch and display name
+
+problems --
+1. Data mismatching while showing data
+2. Cache logic
+
+
+[
+{name: naynesh},
+{name: xyz},
+{name: piz},
+…
+...
+}]
+
+
+
+Class ViewController :UIViewController {
+
+cellForRowAtIndex(idex) {
+Let cell = Cell()
+Let name = array[indexpath.row] as? String,
+showloader
+self.getFullNameFromService(name) ( (name,Fullname) in 
+hidloaer
+	Dispatchque.main.asynch {
+Cell.namelabel.text = array[indxpath.row].name
+
+}
+
+)
+return cell
+
+} 
+
+Func getFullNameFromService(_name : String, completionHandler: @escaping (string { in
+ completionHandler(name)
+}))
+}
+
+
+
+Class Cell {
+
+var label 
+}
+
